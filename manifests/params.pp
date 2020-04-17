@@ -124,6 +124,7 @@ class docker::params {
       $package_source_location = 'http://apt.dockerproject.org/repo'
       $package_key_source = 'http://apt.dockerproject.org/gpg'
       $package_key = '58118E89F3A912897C070ADBF76221572C52609D'
+      $s3_enabled = undef
 
       if ($::operatingsystem == 'Debian' and versioncmp($::operatingsystemmajrelease, '8') >= 0) or ($::operatingsystem == 'Ubuntu' and versioncmp($::operatingsystemrelease, '15.04') >= 0) {
         $detach_service_in_init = false
@@ -162,6 +163,7 @@ class docker::params {
         $manage_epel = false
       }
       $package_key_source = 'https://yum.dockerproject.org/gpg'
+      $s3_enabled = undef
       if $::operatingsystem == 'Fedora' {
         $package_source_location = "https://yum.dockerproject.org/repo/main/fedora/${::operatingsystemmajrelease}"
       } else {
@@ -234,6 +236,7 @@ class docker::params {
       $detach_service_in_init = false
       $repo_opt = undef
       $nowarn_kernel = false
+      $s3_enabled = undef
       $service_provider   = 'systemd'
       $service_overrides_template = 'docker/etc/systemd/system/docker.service.d/service-overrides-archlinux.conf.erb'
       $service_hasstatus  = true
@@ -256,6 +259,7 @@ class docker::params {
       $detach_service_in_init = true
       $repo_opt = undef
       $nowarn_kernel = false
+      $s3_enabled = undef
       $service_provider   = 'openrc'
       $service_overrides_template = 'docker/etc/systemd/system/docker.service.d/service-overrides-archlinux.conf.erb'
       $service_hasstatus  = true
@@ -272,6 +276,7 @@ class docker::params {
       $package_repos = undef
       $package_release = undef
       $use_upstream_package_source = true
+      $s3_enabled = undef
       $service_hasstatus  = undef
       $service_hasrestart = undef
       $package_name = $package_name_default

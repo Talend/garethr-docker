@@ -340,6 +340,7 @@ class docker(
   $package_repos                     = $docker::params::package_repos,
   $package_key                       = $docker::params::package_key,
   $package_key_source                = $docker::params::package_key_source,
+  $s3_enabled                        = $docker::params::s3_enabled,
   $service_state                     = $docker::params::service_state,
   $service_enable                    = $docker::params::service_enable,
   $manage_service                    = $docker::params::manage_service,
