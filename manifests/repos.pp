@@ -47,7 +47,10 @@ class docker::repos {
           $s3_enabled = $docker::s3_enabled
         } else {
           $baseurl = $docker::package_source_location
-          $gpgkey = $docker::package_key_source
+          $gpgkey = undef
+          if ($docker::package_key_source) {
+            $gpgkey = $docker::package_key_source
+          }
           $gpgcheck = $docker::package_key_check_source
           $s3_enabled = $docker::s3_enabled
         }
