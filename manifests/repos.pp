@@ -43,16 +43,21 @@ class docker::repos {
         if ($docker::docker_cs) {
           $baseurl = $docker::package_cs_source_location
           $gpgkey = $docker::package_cs_key_source
+          $gpgcheck = $docker::package_cs_key_check_source
+          $s3_enabled = $docker::s3_enabled
         } else {
           $baseurl = $docker::package_source_location
           $gpgkey = $docker::package_key_source
+          $gpgcheck = $docker::package_key_check_source
+          $s3_enabled = $docker::s3_enabled
         }
         if ($docker::use_upstream_package_source) {
           yumrepo { 'docker':
-            descr    => 'Docker',
-            baseurl  => $baseurl,
-            gpgkey   => $gpgkey,
-            gpgcheck => true,
+            descr      => 'Docker',
+            baseurl    => $baseurl,
+            gpgkey     => $gpgkey,
+            gpgcheck   => $gpgcheck,
+            s3_enabled => $s3_enabled,
           }
           Yumrepo['docker'] -> Package['docker']
         }
