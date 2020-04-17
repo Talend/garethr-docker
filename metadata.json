@@ -1,6 +1,6 @@
 {
   "name": "garethr-docker",
-  "version": "5.2.0",
+  "version": "5.2.0-talend",
   "author": "Gareth Rushgrove",
   "summary": "Module for installing and managing docker",
   "license": "Apache-2.0",
@@ -8,9 +8,18 @@
   "project_page": "https://github.com/garethr/garethr-docker",
   "issues_url": "https://github.com/garethr/garethr-docker/issues",
   "dependencies": [
-    {"name":"puppetlabs/stdlib","version_requirement":">= 4.1.0"},
-    {"name":"puppetlabs/apt","version_requirement":">= 1.8.0 <= 3.0.0"},
-    {"name":"stahnma/epel","version_requirement":">= 0.0.6"}
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 4.1.0"
+    },
+    {
+      "name": "puppetlabs/apt",
+      "version_requirement": ">= 1.8.0 <= 3.0.0"
+    },
+    {
+      "name": "stahnma/epel",
+      "version_requirement": ">= 0.0.6"
+    }
   ],
   "data_provider": null,
   "operatingsystem_support": [
